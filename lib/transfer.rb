@@ -29,6 +29,7 @@ attr_reader :sender, :receiver, :status, :amount
   end
 
   def reverse_transfer
+    # this should only execute if a transfer execution has occured therefore the method should only execute if @status is complete
     if @status == "complete"
       @sender.balance = @sender.balance + @amount
       @receiver.balance = @receiver.balance - @amount
